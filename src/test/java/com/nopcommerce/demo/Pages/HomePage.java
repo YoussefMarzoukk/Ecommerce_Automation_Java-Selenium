@@ -36,10 +36,10 @@ public class HomePage extends BasePage {
     @FindBy(css = "#bar-notification > div > p")
     private WebElement addedSuccessfully;
 
-    public HomePage load() {
-        driver.get("https://demo.nopcommerce.com/");
+  public HomePage load() {
+        driver.get(ConfigUtils.getInstance().baseURL());
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
-        return this;
+        return new HomePage(driver);
     }
 
     public LoginPage login() {
