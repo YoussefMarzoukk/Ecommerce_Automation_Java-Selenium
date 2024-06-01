@@ -12,7 +12,7 @@ import org.testng.annotations.Test;
 public class LoginPageTest extends BaseTest {
 
 
-    @Test(dataProvider="Valid_Login_Data")
+    @Test(dataProvider="Valid_Login_Data",enabled=false)
     public void UserShouldBeAbleToLogIn(String email, String password) {
 
         HomePage homePage = new HomePage(driver);

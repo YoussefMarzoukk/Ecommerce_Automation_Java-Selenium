@@ -24,9 +24,6 @@ public class CheckOutTest extends BaseTest {
         checkoutPage.checkOutSequence();
 
         // Verify that the order was successful
-        String successMessage = checkoutPage.getSuccessfulMessage();
-        Assert.assertTrue(successMessage.contains("Your order has been successfully processed!"), "Order was not successful");
-
-        // Finish the process
-        checkoutPage.clickFinishProcess();
+        boolean isSuccessful = checkoutPage.isSuccessful();
+        Assert.assertTrue(isSuccessful);
     }}

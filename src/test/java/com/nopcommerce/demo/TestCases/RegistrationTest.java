@@ -62,7 +62,4 @@ public class RegistrationTest extends BaseTest {
         boolean DuplicateEmailError = registerPage.isDuplicateEmailErrorDisplayed();
         Assert.assertTrue(DuplicateEmailError);
     }
-
-
-
 }

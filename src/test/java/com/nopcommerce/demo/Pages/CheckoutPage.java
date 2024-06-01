@@ -22,13 +22,16 @@ public class CheckoutPage extends BasePage {
     private WebElement countryElement;
     private Select countrySelect;
 
-    @FindBy(xpath = "//*[@id='BillingNewAddress_StateProvinceId']")
+    @FindBy(id= "BillingNewAddress_StateProvinceId")
     private WebElement stateElement;
     private Select stateSelect;
 
     @FindBy(id = "BillingNewAddress_City")
     private WebElement city;
+    private Select citySelect;
 
+    @FindBy(css = "#BillingNewAddress_Email")
+    private WebElement email;
     @FindBy(id = "BillingNewAddress_Address1")
     private WebElement address1;
 
@@ -62,11 +65,10 @@ public class CheckoutPage extends BasePage {
     @FindBy(xpath = "//button[contains(@class,'button-1 confirm-order-next-step-button')]")
     private WebElement confirm;
 
-    @FindBy(xpath = "(//strong)[1]")
+    @FindBy(css = "#main > div > div > div > div.page-body.checkout-data > div > div.title > strong")
     private WebElement successfulMessage;
 
-    @FindBy(xpath = "//button[contains(@class,'button-1 order-completed-continue-button')]")
-    private WebElement finishProcess;
+
 
     // Initialize Select elements for country and state
     public void initializeSelectElements() {
@@ -110,6 +112,9 @@ public class CheckoutPage extends BasePage {
     public void enterPhone(String phoneNumber) {
         phone.sendKeys(phoneNumber);
     }
+    public void enterEmail(String Email) {
+        email.sendKeys(Email);
+    }
 
     public void enterFax(String faxNumber) {
         fax.sendKeys(faxNumber);
@@ -143,16 +148,14 @@ public class CheckoutPage extends BasePage {
         return successfulMessage.getText();
     }
 
-    public void clickFinishProcess() {
-        finishProcess.click();
-    }
 
     // Complete the checkout sequence
     public void checkOutSequence() {
         enterFirstName("Youssef");
         enterLastName("Marzouk");
         initializeSelectElements();
-        selectCountryByIndex(1); // Select the second option in the country dropdown
+        selectCountryByIndex(2);
+        enterEmail("youssefmarzouk123@yahoo.com");
         enterCity("New York");
         enterAddress1("123 Main St");
         enterAddress2("Apt 4B");
@@ -165,4 +168,8 @@ public class CheckoutPage extends BasePage {
         clickContinue4();
         clickConfirm();
     }
+public boolean isSuccessful(){
+        return successfulMessage.isDisplayed();
+
+}
 }

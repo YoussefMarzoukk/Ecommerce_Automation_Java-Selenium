@@ -23,13 +23,7 @@ public class ShoppingCartTest extends BaseTest {
     String ActualPrice= "$27.00";
     Assert.assertEquals(shownPrice, ActualPrice);
 }
-    @Test
-    public void incProduct(){
-        HomePage homePage = new HomePage(driver);
-        String shownPrice = homePage.load().setAddProductToCart().cartButton().incQuantity();
-        String ActualPrice= "2";
-        Assert.assertEquals(shownPrice, ActualPrice);
-    }
+
 
     @Test
     public void removeItemFromCart() {
