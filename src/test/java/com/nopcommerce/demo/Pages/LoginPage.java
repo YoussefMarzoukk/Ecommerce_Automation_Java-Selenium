@@ -1,7 +1,6 @@
 package com.nopcommerce.demo.Pages;
 
 import com.nopcommerce.demo.base.BasePage;
-import com.nopcommerce.demo.utils.ConfigUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

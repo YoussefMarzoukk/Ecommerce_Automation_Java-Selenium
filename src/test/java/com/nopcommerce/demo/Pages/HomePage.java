@@ -1,13 +1,11 @@
 package com.nopcommerce.demo.Pages;
 
 import com.nopcommerce.demo.base.BasePage;
-import com.nopcommerce.demo.utils.ConfigUtils;
-import org.apache.commons.logging.Log;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -38,12 +36,10 @@ public class HomePage extends BasePage {
     @FindBy(css = "#bar-notification > div > p")
     private WebElement addedSuccessfully;
 
-
-
     public HomePage load() {
-        driver.get(ConfigUtils.getInstance().baseURL());
+        driver.get("https://demo.nopcommerce.com/");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
-        return new HomePage(driver);
+        return this;
     }
 
     public LoginPage login() {
@@ -53,13 +49,14 @@ public class HomePage extends BasePage {
 
     public HomePage logout() {
         logout.click();
-        return new HomePage(driver);
+        return this;
     }
 
     public RegisterPage register() {
         registerButton.click();
         return new RegisterPage(driver);
     }
+
     public ShoppingCartPage cartButton() {
         cartButton.click();
         return new ShoppingCartPage(driver);
@@ -71,22 +68,15 @@ public class HomePage extends BasePage {
     }
 
     public HomePage setAddProductToCart() {
-
         Books.click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20)); // Adjust the timeout as needed
         wait.until(ExpectedConditions.visibilityOf(Book1));
         Book1.click();
-        return new HomePage(driver);
+        return this;
     }
-
 
     public boolean itemAddedSuccessfully() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
         return addedSuccessfully.isDisplayed();
     }
-
-
-
-
-
 }

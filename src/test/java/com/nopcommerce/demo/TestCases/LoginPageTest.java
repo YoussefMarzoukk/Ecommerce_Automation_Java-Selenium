@@ -3,16 +3,13 @@ package com.nopcommerce.demo.TestCases;
 import com.nopcommerce.demo.Pages.HomePage;
 import com.nopcommerce.demo.Pages.LoginPage;
 import com.nopcommerce.demo.base.BaseTest;
-import com.nopcommerce.demo.utils.ConfigUtils;
-import org.apache.commons.logging.Log;
 import org.testng.Assert;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LoginPageTest extends BaseTest {
 
 
-    @Test(dataProvider="Valid_Login_Data",enabled=false)
+    @Test(dataProvider="Valid_Login_Data")
     public void UserShouldBeAbleToLogIn(String email, String password) {
 
         HomePage homePage = new HomePage(driver);

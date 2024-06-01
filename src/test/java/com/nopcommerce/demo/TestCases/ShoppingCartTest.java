@@ -24,7 +24,6 @@ public class ShoppingCartTest extends BaseTest {
     Assert.assertEquals(shownPrice, ActualPrice);
 }
 
-
     @Test
     public void removeItemFromCart() {
         HomePage homePage = new HomePage(driver);

@@ -11,7 +11,7 @@ public class DriverFactory {
     private WebDriver driver;
 
     public WebDriver initDriver(){
-    String browser = System.getProperty("browser","CHROME");
+    String browser = "CHROME";
     switch (browser){
         case "CHROME":
             WebDriverManager.chromedriver().setup();
